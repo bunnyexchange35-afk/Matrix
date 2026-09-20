@@ -12,6 +12,7 @@ This repository hosts ONLY the `matrixxcrm.online` landing page. It is NOT a ful
 
 - `index.html` — The MATRIXX ecosystem landing page (single-page, static)
 - `README.md` — Product documentation
+- `AGENTS.md` — This file
 
 ## Design System
 
@@ -26,14 +27,25 @@ The landing page uses the **MATRIXX Tools dashboard design tokens**:
 
 See https://github.com/bunnyexchange35-afk/Tools for the full design system reference.
 
-## Subdomains
+## Deployment — cPanel ONLY
 
-| Product | Domain | Repo |
-|---------|--------|------|
-| Tools | tools.matrixxcrm.online | Metrixcrm/Tools |
-| Merchants | merchants.matrixxcrm.online | Metrixcrm/Merchants |
-| Dating | dating.matrixxcrm.online | Metrixcrm/Dating |
-| Store | store.matrixxcrm.online | Metrixcrm/Store |
+All MATRIXX products deploy through cPanel, not Vercel.
+
+### Document root for matrixxcrm.online
+
+`/home/toolshub/public_html/`
+
+The `index.html` from this repo goes to the cPanel document root for `matrixxcrm.online`.
+
+### Subdomains
+
+| Product | Domain | cPanel Document Root | Repo |
+|---------|--------|---------------------|------|
+| Matrix (landing) | matrixxcrm.online | `/home/toolshub/public_html/` | Metrixcrm/Matrix |
+| Tools | tools.matrixxcrm.online | `/home/toolshub/public_html/` (shared) | Metrixcrm/Tools |
+| Merchants | merchants.matrixxcrm.online | `/home/toolshub/public_html/merchants/` | Metrixcrm/Merchants |
+| Dating | dating.matrixxcrm.online | TBD | Metrixcrm/Dating |
+| Store | store.matrixxcrm.online | TBD (→ Shopify) | Metrixcrm/Store |
 
 ## Rules
 
@@ -44,3 +56,4 @@ See https://github.com/bunnyexchange35-afk/Tools for the full design system refe
 5. **DO keep design consistent** with Tools dashboard design tokens
 6. **DO use responsive design** — mobile-first
 7. **DO keep it lightweight** — no frameworks, no build step needed
+8. **DO NOT deploy to Vercel** — all deployments go through cPanel
